@@ -1,9 +1,18 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
+project(runpix)
 
-project(runpix LANGUAGES C)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(runpix main.c)
+# Point to our own cmake modules
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMakeModules)
 
-target_link_libraries(runpix raylib)
+# Find SDL2
+find_package(SDL2 REQUIRED)
 
-install(TARGETS runpix RUNTIME DESTINATION bin)
+# Add global definitions
+add_definitions("-Wall")
+include_directories(${SDL2_INCLUDE_DIR})
+
+add_executable(runpix main.cpp engine/sprite.h engine/sprite.cpp)
+install(TARGETS runpix DESTINATION bin)
+target_link_libraries(runpix ${SDL2_LIBRARIES})
