@@ -2,8 +2,13 @@
 // Created by rfranr on 7/2/21.
 //
 
-#include <iostream>
+#include "../r/infrastructure/log/logger.h"
+#include <string>
+
+using namespace r::infrastructure;
+
 
 void testingComments (int x) {
-    std::cout << "tes";
+	auto s = std::to_string(x);
+	Log::error("test := " + s);
 }
