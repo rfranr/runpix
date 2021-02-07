@@ -16,7 +16,7 @@ find_package(Log4cxx REQUIRED)
 # Documentation
 if (DOXYGEN_FOUND)
     # set input and output files
-    set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/docs/Doxyfile.in)
+    set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/docs/f.ini)
     set(DOXYGEN_OUT ${CMAKE_SOURCE_DIR}/docs/Doxyfile)
 
     # request to configure the file

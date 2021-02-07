@@ -30,9 +30,7 @@ int main(int argc, char **argv) {
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     Log::info("Entering application.");
-    Log::info()
-
-
+    
     /* Main game loop */
     while (!SDL_QuitRequested()) {
         SDL_RenderClear(renderer);
