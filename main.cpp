@@ -11,7 +11,10 @@
 
 using namespace r::infrastructure;
 
-
+//! \brief HELLO
+//! \param argc df
+//! \param argv fdsf
+//! \return
 int main(int argc, char **argv) {
 
     Log::init(argv[1]);
