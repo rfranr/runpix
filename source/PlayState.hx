@@ -5,6 +5,8 @@ import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.math.FlxMath;
 import flixel.ui.FlxButton;
+import flixel.tile.FlxTilemap;
+
 
 
 class PlayState extends FlxState
@@ -12,6 +14,8 @@ class PlayState extends FlxState
 
 	var _pixie : FlxSprite;
 	var _pixies : Array<FlxSprite> = [];
+
+	var collisionMap:FlxTilemap;
 
 	override public function create()
 	{
@@ -34,6 +38,14 @@ class PlayState extends FlxState
 			add ( pc );
 			_pixies.insert ( i, pc );
 		}
+
+		// tilemap
+		collisionMap = new FlxTilemap();
+
+		// Initializes the map using the generated string, the tile images, and the tile size
+		collisionMap.loadMapFromCSV ("assets/images/tiles/tiles.csv", "assets/images/tiles/tiles.png", 16, 16, AUTO);
+		add(collisionMap);
+
 	}
 
 	override public function update(elapsed:Float)
