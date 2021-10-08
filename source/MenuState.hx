@@ -56,6 +56,9 @@ class MenuState extends FlxState
 
 		add(_playButton);
 
+
+		infra.Utils.Util.Hello();
+
 	}
 
 	override public function update(elapsed:Float)
@@ -70,6 +73,7 @@ class MenuState extends FlxState
 		for ( item in _pixies ){
 			item.y +=1;
 		}
+
 	}
 }
 	

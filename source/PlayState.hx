@@ -6,7 +6,7 @@ import flixel.text.FlxText;
 import flixel.math.FlxMath;
 import flixel.ui.FlxButton;
 import flixel.tile.FlxTilemap;
-
+import flixel.graphics.FlxGraphic;
 
 
 class PlayState extends FlxState
@@ -16,6 +16,8 @@ class PlayState extends FlxState
 	var _pixies : Array<FlxSprite> = [];
 
 	var collisionMap:FlxTilemap;
+	var tileMapGraphic:FlxGraphic;
+
 
 	override public function create()
 	{
@@ -43,7 +45,8 @@ class PlayState extends FlxState
 		collisionMap = new FlxTilemap();
 
 		// Initializes the map using the generated string, the tile images, and the tile size
-		collisionMap.loadMapFromCSV ("assets/images/tiles/tiles.csv", "assets/images/tiles/tiles.png", 16, 16, AUTO);
+		tileMapGraphic = FlxGraphic.fromAssetKey("__assets/images/tiles/country-platform-back.png");
+		collisionMap.loadMapFromArray (infra.Utils.Util.Map(), 16, 16,"__assets/images/tiles/country-platform-back.png", AUTO);
 		add(collisionMap);
 
 	}
@@ -58,4 +61,3 @@ class PlayState extends FlxState
 		}
 	}
 }
-	
